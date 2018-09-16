@@ -20,7 +20,7 @@ class AccountJdbcDAO {
     }
 
     void closeConnection(Connection connection) throws SQLException {
-        System.out.println("Baza: " + connection.getCatalog() + " zamknięta!");
+        //System.out.println("Baza: " + connection.getCatalog() + " zamknięta!");
         connection.close();
     }
 
@@ -81,7 +81,7 @@ class AccountJdbcDAO {
     }
 
     void findAll(Connection connection) throws SQLException {
-        String query = "SELECT * FROM Account";
+        String query = "SELECT * FROM AccountOperations";
         createStatement(connection, query);
     }
 
@@ -106,7 +106,7 @@ class AccountJdbcDAO {
     }
 
     int accountCount(Connection connection) throws SQLException {
-        String query = "SELECT COUNT(*) AS total FROM Account";
+        String query = "SELECT COUNT(*) AS total FROM AccountOperations";
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
         int count = 0;
@@ -121,10 +121,10 @@ class AccountJdbcDAO {
     }
 
     private void printResult(ResultSet resultSet) throws SQLException {
-        System.out.print(resultSet.getInt("idAccount") + " ");
-        System.out.print(resultSet.getInt("balance") + " ");
-        System.out.print(resultSet.getString("number") + " ");
-        System.out.print(resultSet.getDate("creation_date") + " ");
+        System.out.print(resultSet.getInt("idAccount") + ", ");
+        System.out.print(resultSet.getInt("balance") + ", ");
+        System.out.print(resultSet.getString("number") + ", ");
+        System.out.print(resultSet.getDate("creation_date") + ", ");
         System.out.println(resultSet.getDate("close_date"));
     }
 }
