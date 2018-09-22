@@ -1,4 +1,4 @@
-package pl.sda.command;
+package pl.sda.bo.command;
 
 public interface Command {
     void run();

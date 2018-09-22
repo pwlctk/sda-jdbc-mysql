@@ -1,31 +1,32 @@
-package pl.sda.command;
+package pl.sda.bo.command;
 
 import pl.sda.dao.AccountOperations;
 
 import java.util.Scanner;
 
-public class AddAccount implements Command {
+public class DeleteAccount implements Command {
+
     private AccountOperations accountOperations;
 
-    public AddAccount(AccountOperations accountOperations) {
+    public DeleteAccount(AccountOperations accountOperations) {
         this.accountOperations = accountOperations;
     }
-
     @Override
     public void run() {
+        accountOperations.printAllAccountsInfo();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj numer konta: ");
-        String number = scanner.nextLine();
-        accountOperations.addNewAccount(number);
+        System.out.println("Podaj id konta: ");
+        int id = scanner.nextInt();
+        accountOperations.deleteAccount(id);
     }
 
     @Override
     public String getHelpMessage() {
-        return "Dodaje nowe konto do bazy danych";
+        return "Usuwa konto z bazy";
     }
 
     @Override
     public String getCommandName() {
-        return "add";
+        return "delete";
     }
 }

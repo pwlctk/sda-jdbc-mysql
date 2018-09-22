@@ -1,5 +1,6 @@
-package pl.sda.command;
+package pl.sda.bo;
 
+import pl.sda.bo.command.*;
 import pl.sda.dao.AccountOperations;
 
 import java.util.HashMap;

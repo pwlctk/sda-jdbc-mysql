@@ -1,4 +1,4 @@
-package pl.sda.command;
+package pl.sda.bo.command;
 
 import java.util.Map;
 
@@ -6,7 +6,7 @@ public class Help implements Command {
 
     private Map<String, Command> commands;
 
-    Help(Map<String, Command> commands) {
+    public Help(Map<String, Command> commands) {
         this.commands = commands;
     }
 
